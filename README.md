@@ -1,2 +1,2 @@
 # RNG_Seed
-RNG with seed
+JS RNG with seed
