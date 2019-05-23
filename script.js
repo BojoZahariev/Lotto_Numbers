@@ -35,11 +35,21 @@ RNG.prototype.choice = function (array) {
 var rng = new RNG(10);
 for (var i = 0; i < 6; i++) {
     console.log(rng.nextRange(1, 50));
-    num1.textContent = rng.nextRange(1, 50);
+
+    var item = document.createElement("li");
+    item.classList.add('item');
+    const container = document.querySelector("#container");
+    container.appendChild(item);
+    item.textContent = rng.nextRange(1, 50);
 }
 
 var digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 for (var i = 0; i < 6; i++) {
     console.log(rng.choice(digits));
-    num2.textContent = (rng.choice(digits));
+
+    var item = document.createElement("li");
+    item.classList.add('item');
+    const container2 = document.querySelector("#container2");
+    container2.appendChild(item);
+    item.textContent = (rng.choice(digits));
 }
