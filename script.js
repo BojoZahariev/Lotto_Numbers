@@ -53,6 +53,10 @@ for (var i = 0; i < 6; i++) {
     item.textContent = rng.nextRange(1, 50);
 }
 
+var birthDate = Date.parse('15 Dec 1980');
+
+
+
 /*
 var digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 for (var i = 0; i < 6; i++) {
