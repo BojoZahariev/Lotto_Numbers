@@ -31,8 +31,18 @@ RNG.prototype.choice = function (array) {
 };
 
 //Seed
+var firstName = "bojo";
 
-var rng = new RNG(10);
+function letterToNumber(str) {
+    str = str.toLowerCase();
+    var sum = 0;
+    for (let i = 0; i < str.length; i++) {
+        sum += str.charCodeAt(i)
+    }
+    return sum;
+}
+
+var rng = new RNG(letterToNumber(firstName));
 for (var i = 0; i < 6; i++) {
     console.log(rng.nextRange(1, 50));
 
@@ -43,6 +53,7 @@ for (var i = 0; i < 6; i++) {
     item.textContent = rng.nextRange(1, 50);
 }
 
+/*
 var digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 for (var i = 0; i < 6; i++) {
     console.log(rng.choice(digits));
@@ -53,3 +64,4 @@ for (var i = 0; i < 6; i++) {
     container2.appendChild(item);
     item.textContent = (rng.choice(digits));
 }
+*/
