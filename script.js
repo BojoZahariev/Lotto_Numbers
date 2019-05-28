@@ -32,6 +32,7 @@ RNG.prototype.choice = function (array) {
 
 //Seed
 var firstName = "bojo";
+var dateInt = Date.parse("March 21, 2012");
 
 function letterToNumber(str) {
     str = str.toLowerCase();
