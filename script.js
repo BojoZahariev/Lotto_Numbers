@@ -18,7 +18,7 @@ RNG.prototype.nextFloat = function() {
 	return this.nextInt() / (this.m - 1);
 };
 RNG.prototype.nextRange = function(start, end) {
-	// returns in range [start, end): including start, excluding end
+	// returns in range (start, end): including start, excluding end
 	// can't modulu nextInt because of weak randomness in lower bits
 	var rangeSize = end - start;
 	var randomUnder1 = this.nextInt() / this.m;
@@ -29,7 +29,7 @@ RNG.prototype.choice = function(array) {
 };
 
 //Seed
-var firstName = 'bojo';
+var firstName = 'Bojo';
 var dateBirth = Date.parse('December 15, 1980');
 var currentDate = new Date();
 
@@ -52,11 +52,11 @@ var rng = new RNG(letterToNumber(firstName) + dateBirth + today);
 var a = 0;
 var myArray = [];
 for (let i = 0; i < 6; i++) {
-	let a = rng.nextRange(1, 50);
+	let a = rng.nextRange(1, 51);
 	myArray.push(a);
 	for (let x = 0; x < myArray.length; x++) {
 		if (myArray[x] === a) {
-			myArray.splice(x, 1, rng.nextRange(1, 50));
+			myArray.splice(x, 1, rng.nextRange(1, 51));
 		}
 	}
 }
@@ -68,5 +68,5 @@ for (let i = 0; i < 6; i++) {
 	item.classList.add('item');
 	const container = document.querySelector('#container');
 	container.appendChild(item);
-	item.textContent = rng.nextRange(1, 50);
+	item.textContent = rng.nextRange(1, 51);
 }
