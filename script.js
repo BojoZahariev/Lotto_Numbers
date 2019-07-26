@@ -50,33 +50,20 @@ var rng = new RNG(letterToNumber(firstName) + dateBirth + today);
 
 var a = 0;
 var myArray = [];
-for (let i = 0; i < 16; i++) {
+for (let i = 0; i < 6; i++) {
 	let a = rng.nextRange(1, 51);
 	myArray.push(a);
 }
 
 //testing that
-function eliminateDuplicates(arr) {
-	var i,
-		len = arr.length,
-		out = [],
-		obj = {};
+var numbersUnique = Array.from(new Set(myArray));
+console.log(numbersUnique);
 
-	for (i = 0; i < len; i++) {
-		obj[arr[i]] = 0;
-	}
-	for (i in obj) {
-		out.push(i);
-	}
-	return out;
-}
-
-console.log(eliminateDuplicates(myArray));
-
-for (let i = 0; i < 6; i++) {
+for (let i = 0; i < numbersUnique.length; i++) {
 	var item = document.createElement('li');
 	item.classList.add('item');
 	const container = document.querySelector('#container');
 	container.appendChild(item);
-	item.textContent = rng.nextRange(1, 51);
+	//item.textContent = rng.nextRange(1, 51);
+	item.textContent = numbersUnique[i];
 }
