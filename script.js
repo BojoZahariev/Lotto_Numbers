@@ -45,23 +45,33 @@ var letterToNumber = (str) => {
 	return sum;
 };
 
-//lucky number changes every day
+//lucky numbers change every day
 var rng = new RNG(letterToNumber(firstName) + dateBirth + today);
 
-//Need work not working , unique numbers
 var a = 0;
 var myArray = [];
-for (let i = 0; i < 6; i++) {
+for (let i = 0; i < 16; i++) {
 	let a = rng.nextRange(1, 51);
 	myArray.push(a);
-	for (let x = 0; x < myArray.length; x++) {
-		if (myArray[x] === a) {
-			myArray.splice(x, 1, rng.nextRange(1, 51));
-		}
-	}
 }
 
-console.log(myArray);
+//testing that
+function eliminateDuplicates(arr) {
+	var i,
+		len = arr.length,
+		out = [],
+		obj = {};
+
+	for (i = 0; i < len; i++) {
+		obj[arr[i]] = 0;
+	}
+	for (i in obj) {
+		out.push(i);
+	}
+	return out;
+}
+
+console.log(eliminateDuplicates(myArray));
 
 for (let i = 0; i < 6; i++) {
 	var item = document.createElement('li');
