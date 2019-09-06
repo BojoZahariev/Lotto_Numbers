@@ -25,7 +25,7 @@ RNG.prototype.choice = function(array) {
 	return array[this.nextRange(0, array.length)];
 };
 
-const generateNumbers = () => {
+const generateNumbers = (amount) => {
 	//Seed
 	let firstName = 'Bojo';
 	let input1 = document.getElementById('birthDate');
@@ -54,7 +54,7 @@ const generateNumbers = () => {
 
 	//Only unique numbers
 	let i = 0;
-	while (i < 6) {
+	while (i < amount) {
 		if (myArray.indexOf(randomNumber) === -1) {
 			myArray.push(randomNumber);
 			randomNumber = rngSeed.nextRange(1, 51);
@@ -81,5 +81,5 @@ displayButton.addEventListener('click', () => {
 	while (container.firstChild) {
 		container.removeChild(container.firstChild);
 	}
-	generateNumbers();
+	generateNumbers(6);
 });
