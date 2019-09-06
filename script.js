@@ -17,8 +17,8 @@ RNG.prototype.nextFloat = function() {
 RNG.prototype.nextRange = function(start, end) {
 	// returns in range (start, end): including start, excluding end
 	// can't modulu nextInt because of weak randomness in lower bits
-	var rangeSize = end - start;
-	var randomUnder1 = this.nextInt() / this.m;
+	let rangeSize = end - start;
+	let randomUnder1 = this.nextInt() / this.m;
 	return start + Math.floor(randomUnder1 * rangeSize);
 };
 RNG.prototype.choice = function(array) {
@@ -33,11 +33,11 @@ const generateNumbers = () => {
 	let currentDate = new Date();
 
 	//get the number for the day
-	var today = currentDate.getDate() + currentDate.getMonth() + 1 + currentDate.getFullYear();
+	let today = currentDate.getDate() + currentDate.getMonth() + 1 + currentDate.getFullYear();
 
-	var letterToNumber = (str) => {
+	const letterToNumber = (str) => {
 		str = str.toLowerCase();
-		var sum = 0;
+		let sum = 0;
 		for (let i = 0; i < str.length; i++) {
 			sum += str.charCodeAt(i);
 		}
@@ -45,12 +45,14 @@ const generateNumbers = () => {
 	};
 
 	//lucky numbers change every day
-	var rngSeed = new RNG(letterToNumber(firstName) + dateBirth + today);
+	let rngSeed = new RNG(letterToNumber(firstName) + dateBirth + today);
 
-	var myArray = [];
+	//Numbers storage
+	let myArray = [];
 
 	let randomNumber = rngSeed.nextRange(1, 51);
 
+	//Only unique numbers
 	let i = 0;
 	while (i < 6) {
 		if (myArray.indexOf(randomNumber) === -1) {
@@ -58,13 +60,13 @@ const generateNumbers = () => {
 			randomNumber = rngSeed.nextRange(1, 51);
 			i++;
 		} else {
-			console.log('nuc' + randomNumber);
 			randomNumber = rngSeed.nextRange(1, 51);
 		}
 	}
 
+	//Display the results
 	for (let i = 0; i < myArray.length; i++) {
-		var item = document.createElement('li');
+		let item = document.createElement('li');
 		item.classList.add('item');
 		const container = document.getElementById('container');
 		container.appendChild(item);
