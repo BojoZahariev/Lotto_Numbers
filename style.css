@@ -1,3 +1,18 @@
+ul {
+	margin: 50px;
+	font-size: 25px;
+	display: flex;
+}
+
+li {
+	padding: 20px;
+	font-weight: 900;
+}
+
+
+
+/*Date*/
+
 [type="date"] {
 	background: #fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 97% 50% no-repeat;
 }
@@ -10,11 +25,6 @@
 	opacity: 0;
 }
 
-/* custom styles */
-
-label {
-	display: block;
-}
 
 input {
 	border: 1px solid #c4c4c4;
@@ -25,6 +35,8 @@ input {
 	width: 190px;
 	font-size: 20px;
 }
+
+
 
 button {
 	margin-top: 50px;
