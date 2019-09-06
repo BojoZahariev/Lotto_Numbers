@@ -31,7 +31,6 @@ RNG.prototype.choice = function(array) {
 //Seed
 var firstName = 'Bojo';
 let input1 = document.getElementById('birthDate');
-console.log(input1.value);
 var dateBirth = Date.parse(input1.value);
 var currentDate = new Date();
 
@@ -50,26 +49,44 @@ var letterToNumber = (str) => {
 //lucky numbers change every day
 var rng = new RNG(letterToNumber(firstName) + dateBirth + today);
 
-var a = 0;
 var myArray = [];
-for (let i = 0; i < 6; i++) {
-	let a = rng.nextRange(1, 51);
-	myArray.push(a);
+
+let randomNumber = rng.nextRange(1, 51);
+/*
+myArray.push(randomNumber);
+myArray.forEach(function(element) {
+	let counter;
+	if (myArray.indexOf(randomNumber) === -1 && counter < 5) {
+		myArray.push(randomNumber);
+		counter++;
+	}
+});
+*/
+
+let i = 0;
+while (i < 10) {
+	if (myArray.indexOf(randomNumber) === -1) {
+		myArray.push(randomNumber);
+		randomNumber = rng.nextRange(1, 51);
+		i++;
+	} else {
+		console.log('nuc' + randomNumber);
+		randomNumber = rng.nextRange(1, 51);
+	}
 }
 
 //testing that
-
 var numbersUnique = Array.from(new Set(myArray));
-console.log(numbersUnique);
 
 const generateNumbers = () => {
-	for (let i = 0; i < numbersUnique.length; i++) {
+	for (let i = 0; i < myArray.length; i++) {
 		var item = document.createElement('li');
 		item.classList.add('item');
 		const container = document.querySelector('#container');
 		container.appendChild(item);
+		item.textContent = myArray[i];
 		//item.textContent = rng.nextRange(1, 51);
-		item.textContent = numbersUnique[i];
+		//item.textContent = numbersUnique[i];
 	}
 };
 
