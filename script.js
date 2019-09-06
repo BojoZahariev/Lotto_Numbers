@@ -30,7 +30,9 @@ RNG.prototype.choice = function(array) {
 
 //Seed
 var firstName = 'Bojo';
-var dateBirth = Date.parse('December 15, 1980');
+let input1 = document.getElementById('birthDate');
+console.log(input1.value);
+var dateBirth = Date.parse(input1.value);
 var currentDate = new Date();
 
 //get the number for the day
@@ -56,14 +58,22 @@ for (let i = 0; i < 6; i++) {
 }
 
 //testing that
+
 var numbersUnique = Array.from(new Set(myArray));
 console.log(numbersUnique);
 
-for (let i = 0; i < numbersUnique.length; i++) {
-	var item = document.createElement('li');
-	item.classList.add('item');
-	const container = document.querySelector('#container');
-	container.appendChild(item);
-	//item.textContent = rng.nextRange(1, 51);
-	item.textContent = numbersUnique[i];
-}
+const generateNumbers = () => {
+	for (let i = 0; i < numbersUnique.length; i++) {
+		var item = document.createElement('li');
+		item.classList.add('item');
+		const container = document.querySelector('#container');
+		container.appendChild(item);
+		//item.textContent = rng.nextRange(1, 51);
+		item.textContent = numbersUnique[i];
+	}
+};
+
+let generateButton = document.getElementById('generateButton');
+generateButton.addEventListener('click', () => {
+	generateNumbers();
+});
