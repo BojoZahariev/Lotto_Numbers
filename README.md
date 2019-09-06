@@ -1,2 +1,2 @@
-# RNG_Seed
+Lotto Numbers
 JS RNG with seed
