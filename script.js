@@ -26,7 +26,7 @@ RNG.prototype.choice = function (array) {
 };
 
 //Seed
-const generateNumbers = (amount) => {
+const generateNumbers = (amount, range) => {
 	let firstName = document.getElementById('firstName');
 	let input2 = document.getElementById('birthDate');
 	let dateBirth = Date.parse(input2.value);
@@ -54,17 +54,17 @@ const generateNumbers = (amount) => {
 	//Numbers storage
 	let myArray = [];
 
-	let randomNumber = rngSeed.nextRange(1, 51);
+	let randomNumber = rngSeed.nextRange(1, range);
 
 	//Only unique numbers
 	let i = 0;
 	while (i < amount) {
 		if (myArray.indexOf(randomNumber) === -1) {
 			myArray.push(randomNumber);
-			randomNumber = rngSeed.nextRange(1, 51);
+			randomNumber = rngSeed.nextRange(1, range);
 			i++;
 		} else {
-			randomNumber = rngSeed.nextRange(1, 51);
+			randomNumber = rngSeed.nextRange(1, range);
 		}
 	}
 
@@ -80,11 +80,14 @@ const generateNumbers = (amount) => {
 	return container, dateBirth;
 };
 
+
+//Display numbers button
 let displayButton = document.getElementById('displayButton');
 displayButton.addEventListener('click', () => {
 	while (container.firstChild) {
 		container.removeChild(container.firstChild);
 	}
 
-	generateNumbers(6);
+	generateNumbers(6, 51);
+
 });
