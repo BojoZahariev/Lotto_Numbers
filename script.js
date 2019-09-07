@@ -25,9 +25,9 @@ RNG.prototype.choice = function (array) {
 	return array[this.nextRange(0, array.length)];
 };
 
+//Seed
 const generateNumbers = (amount) => {
-	//Seed
-	let firstName = 'Bojo';
+	let firstName = document.getElementById('firstName');
 	let input2 = document.getElementById('birthDate');
 	let dateBirth = Date.parse(input2.value);
 
@@ -37,6 +37,9 @@ const generateNumbers = (amount) => {
 	let today = currentDate.getDate() + currentDate.getMonth() + 1 + currentDate.getFullYear();
 
 	const letterToNumber = (str) => {
+		if (str === '') {
+			str = 'BOJO'
+		}
 		str = str.toLowerCase();
 		let sum = 0;
 		for (let i = 0; i < str.length; i++) {
@@ -46,7 +49,7 @@ const generateNumbers = (amount) => {
 	};
 
 	//lucky numbers change every day
-	let rngSeed = new RNG(letterToNumber(firstName) + dateBirth + today);
+	let rngSeed = new RNG(letterToNumber(firstName.value) + dateBirth + today);
 
 	//Numbers storage
 	let myArray = [];
