@@ -5,7 +5,6 @@ body {
 ul {
 	height: 70px;
 	margin-top: 50px;
-	font-size: 25px;
 	display: flex;
 	justify-content: center;
 	flex-direction: row;
@@ -16,6 +15,11 @@ li {
 	display: block;
 	padding: 20px;
 	font-weight: 900;
+	font-size: 25px;
+}
+
+#formContainer {
+	margin-top: 20px;
 }
 
 /*Date*/
