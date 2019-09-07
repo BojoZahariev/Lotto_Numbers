@@ -108,7 +108,8 @@ displayButton.addEventListener('click', () => {
 	while (container.firstChild) {
 		container.removeChild(container.firstChild);
 	}
-	generateNumbers(6, 51);
+	generateNumbers(5, 51);
+	generateNumbers(2, 13);
 });
 
 
