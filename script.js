@@ -1,93 +1,60 @@
-function RNG(seed) {
-	// LCG using GCC's constants
-	this.m = 0x80000000; // 2**31;
-	this.a = 1103515245;
-	this.c = 12345;
-
-	this.state = seed ? seed : Math.floor(Math.random() * (this.m - 1));
+body {
+	text-align: center;
 }
-RNG.prototype.nextInt = function () {
-	this.state = (this.a * this.state + this.c) % this.m;
-	return this.state;
-};
-RNG.prototype.nextFloat = function () {
-	// returns in range [0,1]
-	return this.nextInt() / (this.m - 1);
-};
-RNG.prototype.nextRange = function (start, end) {
-	// returns in range (start, end): including start, excluding end
-	// can't modulu nextInt because of weak randomness in lower bits
-	let rangeSize = end - start;
-	let randomUnder1 = this.nextInt() / this.m;
-	return start + Math.floor(randomUnder1 * rangeSize);
-};
-RNG.prototype.choice = function (array) {
-	return array[this.nextRange(0, array.length)];
-};
 
-//Seed
-const generateNumbers = (amount, range) => {
-	let firstName = document.getElementById('firstName');
-	let input2 = document.getElementById('birthDate');
-	let dateBirth = Date.parse(input2.value);
+ul {
+	height: 70px;
+	margin-top: 50px;
+	font-size: 25px;
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	background-color: antiquewhite;
+}
 
-	let currentDate = new Date();
+li {
+	display: block;
+	padding: 20px;
+	font-weight: 900;
+}
 
-	//get the number for the day
-	let today = currentDate.getDate() + currentDate.getMonth() + 1 + currentDate.getFullYear();
+/*Date*/
 
-	const letterToNumber = (str) => {
-		if (str === '') {
-			str = 'BOJO'
-		}
-		str = str.toLowerCase();
-		let sum = 0;
-		for (let i = 0; i < str.length; i++) {
-			sum += str.charCodeAt(i);
-		}
-		return sum;
-	};
+#birthDate {
+	background: #fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 97% 50%
+		no-repeat;
+}
 
-	//lucky numbers change every day
-	let rngSeed = new RNG(letterToNumber(firstName.value) + dateBirth + today);
+#birthDate::-webkit-inner-spin-button {
+	display: none;
+}
 
-	//Numbers storage
-	let myArray = [];
+#birthDate::-webkit-calendar-picker-indicator {
+	opacity: 0;
+}
 
-	let randomNumber = rngSeed.nextRange(1, range);
+input {
+	text-transform: uppercase;
+	border: 1px solid #c4c4c4;
+	border-radius: 5px;
+	background-color: #fff;
+	padding: 3px 5px;
+	box-shadow: inset 0 3px 6px #0000001a;
+	width: 190px;
+	font-size: 20px;
+}
 
-	//Only unique numbers
-	let i = 0;
-	while (i < amount) {
-		if (myArray.indexOf(randomNumber) === -1) {
-			myArray.push(randomNumber);
-			randomNumber = rngSeed.nextRange(1, range);
-			i++;
-		} else {
-			randomNumber = rngSeed.nextRange(1, range);
-		}
-	}
+#displayButton {
+	cursor: pointer;
+	margin: auto;
+	width: 100px;
+	margin-top: 50px;
+	padding: 10px;
+	background-color: aquamarine;
+	user-select: none;
+	border: 2px solid #c4c4c4;
+}
 
-	//Display the results
-	for (let i = 0; i < myArray.length; i++) {
-		let item = document.createElement('li');
-		item.classList.add('item');
-		const container = document.getElementById('container');
-		container.appendChild(item);
-		item.textContent = myArray[i];
-	}
-	console.log(input2.value);
-	return container, dateBirth;
-};
-
-
-//Display numbers button
-let displayButton = document.getElementById('displayButton');
-displayButton.addEventListener('click', () => {
-	while (container.firstChild) {
-		container.removeChild(container.firstChild);
-	}
-
-	generateNumbers(6, 51);
-
-});
+#displayButton:active {
+	border: 1px solid #c4c4c4;
+}
