@@ -26,16 +26,19 @@ class RNG {
 	}
 }
 
+
+
 //Seed
 const generateNumbers = (amount, range) => {
-	let firstName = document.getElementById('firstName');
-	let input2 = document.getElementById('birthDate');
+	const firstName = document.getElementById('firstName');
+	const input2 = document.getElementById('birthDate');
 	let dateBirth = Date.parse(input2.value);
 
 	let currentDate = new Date();
 
-	//get the number for the day
-	let today = currentDate.getDate() + currentDate.getMonth() + 1 + currentDate.getFullYear();
+	//get the number for the day from the date
+	let todayNumber = currentDate.getDate() + currentDate.getMonth() + 1 + currentDate.getFullYear();
+	console.log(todayNumber);
 
 	const letterToNumber = (str) => {
 		if (str === '') {
@@ -50,10 +53,10 @@ const generateNumbers = (amount, range) => {
 	};
 
 	//lucky numbers change every day
-	let rngSeed = new RNG(letterToNumber(firstName.value) + Math.abs(dateBirth) + today);
+	let rngSeed = new RNG(letterToNumber(firstName.value) + Math.abs(dateBirth) + todayNumber);
 
 	//Numbers storage
-	let myArray = [];
+	const myArray = [];
 
 	let randomNumber = rngSeed.nextRange(1, range);
 
@@ -77,9 +80,26 @@ const generateNumbers = (amount, range) => {
 		container.appendChild(item);
 		item.textContent = myArray[i];
 	}
-	console.log(input2.value);
-	return container, dateBirth;
+
+
 };
+
+//set max date to today
+const maxDateToday = () => {
+	let today = new Date();
+	let dd = today.getDate();
+	let mm = today.getMonth() + 1; //January is 0!
+	let yyyy = today.getFullYear();
+	if (dd < 10) {
+		dd = '0' + dd
+	}
+	if (mm < 10) {
+		mm = '0' + mm
+	}
+
+	today = yyyy + '-' + mm + '-' + dd;
+	document.getElementById('birthDate').setAttribute("max", today);
+}
 
 
 //Display numbers button
@@ -88,7 +108,19 @@ displayButton.addEventListener('click', () => {
 	while (container.firstChild) {
 		container.removeChild(container.firstChild);
 	}
-
 	generateNumbers(6, 51);
-
 });
+
+
+//clear all
+let clearButton = document.getElementById('clearInput');
+clearButton.addEventListener('click', () => {
+	while (container.firstChild) {
+		container.removeChild(container.firstChild);
+	}
+
+	firstName.value = '';
+	document.getElementById('birthDate').value = '';
+});
+
+maxDateToday();
