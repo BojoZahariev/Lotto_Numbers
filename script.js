@@ -79,6 +79,7 @@ const generateNumbers = (amount, range) => {
 		const container = document.getElementById('container');
 		container.appendChild(item);
 		item.textContent = myArray[i];
+		item.style.fontSize = '5px';
 	}
 
 
