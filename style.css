@@ -51,4 +51,10 @@ input {
 	margin-top: 50px;
 	padding: 10px;
 	background-color: aquamarine;
+	user-select: none;
+	border: 1px solid #c4c4c4;
+}
+
+#displayButton:active {
+	border: none;
 }
