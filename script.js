@@ -6,30 +6,31 @@ function RNG(seed) {
 
 	this.state = seed ? seed : Math.floor(Math.random() * (this.m - 1));
 }
-RNG.prototype.nextInt = function() {
+RNG.prototype.nextInt = function () {
 	this.state = (this.a * this.state + this.c) % this.m;
 	return this.state;
 };
-RNG.prototype.nextFloat = function() {
+RNG.prototype.nextFloat = function () {
 	// returns in range [0,1]
 	return this.nextInt() / (this.m - 1);
 };
-RNG.prototype.nextRange = function(start, end) {
+RNG.prototype.nextRange = function (start, end) {
 	// returns in range (start, end): including start, excluding end
 	// can't modulu nextInt because of weak randomness in lower bits
 	let rangeSize = end - start;
 	let randomUnder1 = this.nextInt() / this.m;
 	return start + Math.floor(randomUnder1 * rangeSize);
 };
-RNG.prototype.choice = function(array) {
+RNG.prototype.choice = function (array) {
 	return array[this.nextRange(0, array.length)];
 };
 
 const generateNumbers = (amount) => {
 	//Seed
 	let firstName = 'Bojo';
-	let input1 = document.getElementById('birthDate');
-	let dateBirth = Date.parse(input1.value);
+	let input2 = document.getElementById('birthDate');
+	let dateBirth = Date.parse(input2.value);
+
 	let currentDate = new Date();
 
 	//get the number for the day
@@ -72,8 +73,8 @@ const generateNumbers = (amount) => {
 		container.appendChild(item);
 		item.textContent = myArray[i];
 	}
-
-	return container;
+	console.log(input2.value);
+	return container, dateBirth;
 };
 
 let displayButton = document.getElementById('displayButton');
@@ -81,5 +82,6 @@ displayButton.addEventListener('click', () => {
 	while (container.firstChild) {
 		container.removeChild(container.firstChild);
 	}
+
 	generateNumbers(6);
 });
