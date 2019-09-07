@@ -23,6 +23,7 @@ li {
 	animation-name: slide;
 	animation-duration: 1s;
 	animation-fill-mode: forwards;
+	margin: 0px 5px;
 }
 
 @keyframes slide {
