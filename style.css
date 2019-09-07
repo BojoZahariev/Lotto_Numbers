@@ -3,10 +3,11 @@ body {
 }
 
 ul {
-	height: 70px;
+	height: 85px;
 	margin-top: 50px;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	flex-direction: row;
 	background-color: antiquewhite;
 }
@@ -15,13 +16,27 @@ li {
 	display: block;
 	padding: 20px;
 	font-weight: 900;
-	font-size: 25px;
+	border-radius: 50%;
+	border: 1px solid #222;
+	width: 30px;
+	height: 30px;
+	animation-name: slide;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes slide {
+	from {
+		font-size: 5px;
+	}
+
+	to {
+		font-size: 25px;
+	}
 }
 
 ul li:nth-last-child(-n + 2) {
 	color: orange;
-	border: 1px solid #222;
-	width: 30px;
 }
 
 #formContainer {
