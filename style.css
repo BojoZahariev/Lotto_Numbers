@@ -21,13 +21,29 @@ li {
 	border: 1px solid #222;
 	width: 30px;
 	height: 30px;
-	animation-name: slide;
+	animation-name: expand;
 	animation-duration: 1s;
+	animation-fill-mode: forwards;
+	-webkit-animation-name: expand;
+	animation-name: expand;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: forwards;
 	animation-fill-mode: forwards;
 	margin: 0px 5px;
 }
 
-@keyframes slide {
+@keyframes expand {
+	from {
+		font-size: 1px;
+	}
+
+	to {
+		font-size: 25px;
+	}
+}
+
+@-webkit-keyframes expand {
 	from {
 		font-size: 1px;
 	}
