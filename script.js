@@ -80,6 +80,9 @@ const generateNumbers = (amount, range) => {
 		container.appendChild(item);
 		item.textContent = myArray[i];
 		item.style.fontSize = '5px';
+		if (amount === 2) {
+			item.style.color = 'orange';
+		}
 	}
 
 
@@ -103,15 +106,26 @@ const maxDateToday = () => {
 }
 
 
-//Display numbers button
-let displayButton = document.getElementById('displayButton');
-displayButton.addEventListener('click', () => {
+//EURO MIL button
+let EMButton = document.getElementById('EMButton');
+EMButton.addEventListener('click', () => {
 	while (container.firstChild) {
 		container.removeChild(container.firstChild);
 	}
 	generateNumbers(5, 51);
 	generateNumbers(2, 13);
 });
+
+let LButton = document.getElementById('LButton');
+LButton.addEventListener('click', () => {
+	while (container.firstChild) {
+		container.removeChild(container.firstChild);
+	}
+	generateNumbers(6, 60);
+
+});
+
+
 
 
 //clear all
