@@ -1,3 +1,6 @@
+const playLotto = document.getElementById('playLotto');
+const playNowLink = document.getElementById('playNowLink');
+//RNG
 class RNG {
 	constructor(seed) {
 		// LCG using GCC's constants
@@ -26,8 +29,6 @@ class RNG {
 	}
 }
 
-
-
 //Seed
 const generateNumbers = (amount, range) => {
 	const firstName = document.getElementById('firstName');
@@ -38,11 +39,10 @@ const generateNumbers = (amount, range) => {
 
 	//get the number for the day from the date
 	let todayNumber = currentDate.getDate() + currentDate.getMonth() + 1 + currentDate.getFullYear();
-	console.log(todayNumber);
 
 	const letterToNumber = (str) => {
 		if (str === '') {
-			str = 'BOJO'
+			str = 'BOJO';
 		}
 		str = str.toLowerCase();
 		let sum = 0;
@@ -84,8 +84,6 @@ const generateNumbers = (amount, range) => {
 			item.style.color = 'orange';
 		}
 	}
-
-
 };
 
 //set max date to today
@@ -95,16 +93,27 @@ const maxDateToday = () => {
 	let mm = today.getMonth() + 1; //January is 0!
 	let yyyy = today.getFullYear();
 	if (dd < 10) {
-		dd = '0' + dd
+		dd = '0' + dd;
 	}
 	if (mm < 10) {
-		mm = '0' + mm
+		mm = '0' + mm;
 	}
 
 	today = yyyy + '-' + mm + '-' + dd;
-	document.getElementById('birthDate').setAttribute("max", today);
-}
+	document.getElementById('birthDate').setAttribute('max', today);
+};
 
+//Lotto Button
+let LButton = document.getElementById('LButton');
+LButton.addEventListener('click', () => {
+	while (container.firstChild) {
+		container.removeChild(container.firstChild);
+	}
+	generateNumbers(6, 60);
+
+	playNowLink.href = 'https://www.national-lottery.co.uk/games/lotto?icid=-:mm:-:mdg:lo:dbg:pl:co';
+	playNowLink.textContent = 'Play Lotto Now';
+});
 
 //EURO MIL button
 let EMButton = document.getElementById('EMButton');
@@ -114,19 +123,10 @@ EMButton.addEventListener('click', () => {
 	}
 	generateNumbers(5, 51);
 	generateNumbers(2, 13);
+
+	playNowLink.href = 'https://www.national-lottery.co.uk/games/euromillions?icid=-:mm:-:mdg:em:dbg:pl:co';
+	playNowLink.textContent = 'Play Euromillions Now';
 });
-
-let LButton = document.getElementById('LButton');
-LButton.addEventListener('click', () => {
-	while (container.firstChild) {
-		container.removeChild(container.firstChild);
-	}
-	generateNumbers(6, 60);
-
-});
-
-
-
 
 //clear all
 let clearButton = document.getElementById('clearInput');
