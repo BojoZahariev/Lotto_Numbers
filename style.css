@@ -1,15 +1,31 @@
 body {
 	text-align: center;
-	font-family: 'Arimo', sans-serif;
+	font-family: 'Patua One', cursive;
+}
+
+.titleDiv {
+	position: relative;
+	width: 800px;
+	margin: 20px auto;
+}
+
+#fourLeaf {
+	position: absolute;
+	top: 0;
+	left: 52px;
+	width: 150px;
+	z-index: -1;
 }
 
 a {
 	text-decoration: none;
 }
 
-h1 {
+.title {
+	color: #4699FF;
+	text-shadow: 4px 4px 5px #000;
 	padding: 30px;
-	font-size: 50px;
+	font-size: 80px;
 	font-weight: 700;
 }
 
@@ -19,7 +35,7 @@ ul {
 	justify-content: center;
 	align-items: center;
 	flex-direction: row;
-	background-color: antiquewhite;
+	background-color: #FEE3DC;
 }
 
 li {
@@ -187,34 +203,33 @@ input {
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
+	border: 1px solid #383737;
 }
 
 #LButton {
 	background-image: url(images/lottoIcon.png);
-	border: 1px solid #F10001;
-	-webkit-box-shadow: 0px 0px 5px 1px #F10001;
-	-moz-box-shadow: 0px 0px 5px 1px #F10001;
-	box-shadow: 0px 0px 5px 1px #F10001;
+	-webkit-box-shadow: 0px 0px 5px 4px #F10001;
+	-moz-box-shadow: 0px 0px 5px 4px #F10001;
+	box-shadow: 0px 0px 5px 4px #F10001;
 }
 
 #EMButton {
 	background-image: url(images/EuroMillions.jpg);
-	border: 2px solid #FFEE02;
-	-webkit-box-shadow: 0px 0px 5px 1px #FFEE02;
-	-moz-box-shadow: 0px 0px 5px 1px #FFEE02;
-	box-shadow: 0px 0px 5px 1px #FFEE02;
+	-webkit-box-shadow: 0px 0px 5px 4px #FFEE02;
+	-moz-box-shadow: 0px 0px 5px 4px #FFEE02;
+	box-shadow: 0px 0px 5px 4px #FFEE02;
 }
 
 #LButton:hover {
-	-webkit-box-shadow: 0px 0px 5px 5px#F10001;
-	-moz-box-shadow: 0px 0px 5px 5px #F10001;
-	box-shadow: 0px 0px 5px 5px #F10001;
+	-webkit-box-shadow: 0px 0px 5px 7px#F10001;
+	-moz-box-shadow: 0px 0px 5px 7px #F10001;
+	box-shadow: 0px 0px 5px 7px #F10001;
 }
 
 #EMButton:hover {
-	-webkit-box-shadow: 0px 0px 5px 5px#FFEE02;
-	-moz-box-shadow: 0px 0px 5px 5px #FFEE02;
-	box-shadow: 0px 0px 5px 5px #FFEE02;
+	-webkit-box-shadow: 0px 0px 5px 7px#FFEE02;
+	-moz-box-shadow: 0px 0px 5px 7px #FFEE02;
+	box-shadow: 0px 0px 5px 7px #FFEE02;
 }
 
 #LButton:active {
