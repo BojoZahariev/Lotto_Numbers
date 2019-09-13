@@ -1,4 +1,5 @@
 const playLotto = document.getElementById('playLotto');
+const playNow = document.getElementById('playNow');
 const playNowLink = document.getElementById('playNowLink');
 //RNG
 class RNG {
@@ -111,10 +112,12 @@ LButton.addEventListener('click', () => {
 	}
 	generateNumbers(6, 60);
 
+	playNow.style.visibility = 'hidden';
 	playNowLink.textContent = '';
 	setTimeout(function() {
+		playNow.style.visibility = 'visible';
 		playNowLink.href = 'https://www.national-lottery.co.uk/games/lotto?icid=-:mm:-:mdg:lo:dbg:pl:co';
-		playNowLink.textContent = 'Play Lotto';
+		playNowLink.textContent = 'Play';
 	}, 2000);
 });
 
@@ -127,10 +130,12 @@ EMButton.addEventListener('click', () => {
 	generateNumbers(5, 51);
 	generateNumbers(2, 13);
 
+	playNow.style.visibility = 'hidden';
 	playNowLink.textContent = '';
 	setTimeout(function() {
+		playNow.style.visibility = 'visible';
 		playNowLink.href = 'https://www.national-lottery.co.uk/games/euromillions?icid=-:mm:-:mdg:em:dbg:pl:co';
-		playNowLink.textContent = 'Play Euromillions';
+		playNowLink.textContent = 'Play';
 	}, 2000);
 });
 
