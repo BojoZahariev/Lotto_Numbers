@@ -115,7 +115,7 @@ LButton.addEventListener('click', () => {
 	setTimeout(function() {
 		playNowLink.href = 'https://www.national-lottery.co.uk/games/lotto?icid=-:mm:-:mdg:lo:dbg:pl:co';
 		playNowLink.textContent = 'Play Lotto Now';
-	}, 3000);
+	}, 2000);
 });
 
 //EURO MIL button
@@ -131,7 +131,7 @@ EMButton.addEventListener('click', () => {
 	setTimeout(function() {
 		playNowLink.href = 'https://www.national-lottery.co.uk/games/euromillions?icid=-:mm:-:mdg:em:dbg:pl:co';
 		playNowLink.textContent = 'Play Euromillions Now';
-	}, 3000);
+	}, 2000);
 });
 
 //clear all
