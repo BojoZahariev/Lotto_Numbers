@@ -3,6 +3,10 @@ body {
 	font-family: 'Arimo', sans-serif;
 }
 
+a {
+	text-decoration: none;
+}
+
 h1 {
 	padding: 30px;
 	font-size: 50px;
@@ -83,18 +87,57 @@ li {
 
 /*Links*/
 #playNow {
-	position: relative;
+	margin: 30px auto;
 	height: 50px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	border: 1px solid #222;
+	width: 150px;
+	height: 70px;
+	position: relative;
+	cursor: pointer;
+	-webkit-box-shadow: 0px 0px 5px 1px#4699FF;
+	-moz-box-shadow: 0px 0px 5px 1px #4699FF;
+	box-shadow: 0px 0px 5px 1px #4699FF;
+	visibility: hidden;
 }
 
-#playLotto,
-#playEM {
-	display: none;
+#playNow:hover {
+	-webkit-box-shadow: 0px 0px 5px 5px#4699FF;
+	-moz-box-shadow: 0px 0px 5px 5px #4699FF;
+	box-shadow: 0px 0px 5px 5px #4699FF;
 }
 
+#playNow:active {
+	-webkit-box-shadow: 0px 0px 5px 0px#4699FF;
+	-moz-box-shadow: 0px 0px 5px 0px #4699FF;
+	box-shadow: 0px 0px 5px 0px #4699FF;
+}
+
+#playNow::before {
+	content: ' ';
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	opacity: 0.7;
+	background-image: url(images/nationallotterylogo.png);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+}
+
+#playNowLink {
+	color: #4699FF;
+	font-size: 44px;
+	text-shadow: 4px 4px 5px #000;
+	z-index: 2;
+}
 
 /*Date*/
 
@@ -144,22 +187,44 @@ input {
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	-webkit-box-shadow: 0px 0px 5px 1px #222;
-	-moz-box-shadow: 0px 0px 5px 1px #222;
-	box-shadow: 0px 0px 5px 1px #222;
 }
 
 #LButton {
 	background-image: url(images/lottoIcon.png);
+	border: 1px solid #F10001;
+	-webkit-box-shadow: 0px 0px 5px 1px #F10001;
+	-moz-box-shadow: 0px 0px 5px 1px #F10001;
+	box-shadow: 0px 0px 5px 1px #F10001;
 }
 
 #EMButton {
 	background-image: url(images/EuroMillions.jpg);
+	border: 2px solid #FFEE02;
+	-webkit-box-shadow: 0px 0px 5px 1px #FFEE02;
+	-moz-box-shadow: 0px 0px 5px 1px #FFEE02;
+	box-shadow: 0px 0px 5px 1px #FFEE02;
 }
 
-#EMButton:active,
+#LButton:hover {
+	-webkit-box-shadow: 0px 0px 5px 5px#F10001;
+	-moz-box-shadow: 0px 0px 5px 5px #F10001;
+	box-shadow: 0px 0px 5px 5px #F10001;
+}
+
+#EMButton:hover {
+	-webkit-box-shadow: 0px 0px 5px 5px#FFEE02;
+	-moz-box-shadow: 0px 0px 5px 5px #FFEE02;
+	box-shadow: 0px 0px 5px 5px #FFEE02;
+}
+
 #LButton:active {
-	-webkit-box-shadow: 0px 0px 5px 0px #222;
-	-moz-box-shadow: 0px 0px 5px 0px #222;
-	box-shadow: 0px 0px 5px 0px #222;
+	-webkit-box-shadow: 0px 0px 5px 0px #F10001;
+	-moz-box-shadow: 0px 0px 5px 0px #F10001;
+	box-shadow: 0px 0px 5px 0px #F10001;
+}
+
+#EMButton:active {
+	-webkit-box-shadow: 0px 0px 5px 0px#FFEE02;
+	-moz-box-shadow: 0px 0px 5px 0px #FFEE02;
+	box-shadow: 0px 0px 5px 0px #FFEE02;
 }
