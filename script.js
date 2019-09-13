@@ -111,8 +111,11 @@ LButton.addEventListener('click', () => {
 	}
 	generateNumbers(6, 60);
 
-	playNowLink.href = 'https://www.national-lottery.co.uk/games/lotto?icid=-:mm:-:mdg:lo:dbg:pl:co';
-	playNowLink.textContent = 'Play Lotto Now';
+	playNowLink.textContent = '';
+	setTimeout(function() {
+		playNowLink.href = 'https://www.national-lottery.co.uk/games/lotto?icid=-:mm:-:mdg:lo:dbg:pl:co';
+		playNowLink.textContent = 'Play Lotto Now';
+	}, 3000);
 });
 
 //EURO MIL button
@@ -124,8 +127,11 @@ EMButton.addEventListener('click', () => {
 	generateNumbers(5, 51);
 	generateNumbers(2, 13);
 
-	playNowLink.href = 'https://www.national-lottery.co.uk/games/euromillions?icid=-:mm:-:mdg:em:dbg:pl:co';
-	playNowLink.textContent = 'Play Euromillions Now';
+	playNowLink.textContent = '';
+	setTimeout(function() {
+		playNowLink.href = 'https://www.national-lottery.co.uk/games/euromillions?icid=-:mm:-:mdg:em:dbg:pl:co';
+		playNowLink.textContent = 'Play Euromillions Now';
+	}, 3000);
 });
 
 //clear all
