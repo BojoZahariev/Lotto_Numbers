@@ -1,5 +1,8 @@
 const playNow = document.getElementById('playNow');
 const playNowLink = document.getElementById('playNowLink');
+const firstName = document.getElementById('firstName');
+const input2 = document.getElementById('birthDate');
+var valid = false;
 //RNG
 class RNG {
 	constructor(seed) {
@@ -31,8 +34,6 @@ class RNG {
 
 //Seed
 const generateNumbers = (amount, range) => {
-	const firstName = document.getElementById('firstName');
-	const input2 = document.getElementById('birthDate');
 	let dateBirth = Date.parse(input2.value);
 
 	let currentDate = new Date();
@@ -41,15 +42,14 @@ const generateNumbers = (amount, range) => {
 	let todayNumber = currentDate.getDate() + currentDate.getMonth() + 1 + currentDate.getFullYear();
 
 	const letterToNumber = (str) => {
-		if (str === '') {
-			str = 'BOJO';
-		}
 		str = str.toLowerCase();
 		let sum = 0;
 		for (let i = 0; i < str.length; i++) {
 			sum += str.charCodeAt(i);
 		}
+
 		return sum;
+
 	};
 
 	//lucky numbers change every day
@@ -72,17 +72,22 @@ const generateNumbers = (amount, range) => {
 		}
 	}
 
-	//Display the results
-	for (let i = 0; i < myArray.length; i++) {
-		let item = document.createElement('li');
-		item.classList.add('item');
-		const container = document.getElementById('container');
-		container.appendChild(item);
-		item.textContent = myArray[i];
-		item.style.fontSize = '5px';
-		if (amount <= 2) {
-			item.classList.add('luckyStars');
+	//prevents default
+	if (firstName.value !== '' && input2.value !== '') {
+		//Display the results
+		for (let i = 0; i < myArray.length; i++) {
+			let item = document.createElement('li');
+			item.classList.add('item');
+			const container = document.getElementById('container');
+			container.appendChild(item);
+			item.textContent = myArray[i];
+			item.style.fontSize = '5px';
+			if (amount <= 2) {
+				item.classList.add('luckyStars');
+			}
 		}
+		//valid entry
+		valid = true;
 	}
 };
 
@@ -106,7 +111,6 @@ const maxDateToday = () => {
 //clear all inputs
 let clearButton = document.getElementById('clearInput');
 clearButton.addEventListener('click', () => {
-	//clearNumbers();
 
 	firstName.value = '';
 	document.getElementById('birthDate').value = '';
@@ -123,11 +127,7 @@ LButton.addEventListener('click', () => {
 
 	playNow.style.visibility = 'hidden';
 	playNowLink.textContent = '';
-	setTimeout(function () {
-		playNow.style.visibility = 'visible';
-		playNowLink.href = 'https://www.national-lottery.co.uk/games/lotto?icid=-:mm:-:mdg:lo:dbg:pl:co';
-		playNowLink.textContent = 'Play';
-	}, 2000);
+	validation('https://www.national-lottery.co.uk/games/lotto?icid=-:mm:-:mdg:lo:dbg:pl:co');
 });
 
 //EURO MIL button
@@ -140,11 +140,8 @@ EMButton.addEventListener('click', () => {
 
 	playNow.style.visibility = 'hidden';
 	playNowLink.textContent = '';
-	setTimeout(function () {
-		playNow.style.visibility = 'visible';
-		playNowLink.href = 'https://www.national-lottery.co.uk/games/euromillions?icid=-:mm:-:mdg:em:dbg:pl:co';
-		playNowLink.textContent = 'Play';
-	}, 2000);
+
+	validation('https://www.national-lottery.co.uk/games/euromillions?icid=-:mm:-:mdg:em:dbg:pl:co');
 });
 
 //Set fo life button
@@ -157,11 +154,8 @@ SFLButton.addEventListener('click', () => {
 
 	playNow.style.visibility = 'hidden';
 	playNowLink.textContent = '';
-	setTimeout(function () {
-		playNow.style.visibility = 'visible';
-		playNowLink.href = 'https://www.national-lottery.co.uk/games/set-for-life?icid=-:mm:-:mdg:sfl:dbg:pl:co';
-		playNowLink.textContent = 'Play';
-	}, 2000);
+
+	validation('https://www.national-lottery.co.uk/games/set-for-life?icid=-:mm:-:mdg:sfl:dbg:pl:co');
 });
 
 //Thunder Ball button
@@ -174,16 +168,40 @@ TBButton.addEventListener('click', () => {
 
 	playNow.style.visibility = 'hidden';
 	playNowLink.textContent = '';
-	setTimeout(function () {
-		playNow.style.visibility = 'visible';
-		playNowLink.href = 'https://www.national-lottery.co.uk/games/thunderball?icid=-:mm:-:mdg:tb:dbg:pl:co';
-		playNowLink.textContent = 'Play';
-	}, 2000);
+
+	validation('https://www.national-lottery.co.uk/games/thunderball?icid=-:mm:-:mdg:tb:dbg:pl:co');
 });
 
 //Clear numbers
 const clearNumbers = () => {
 	while (container.firstChild) {
 		container.removeChild(container.firstChild);
+	}
+}
+
+//check if the inputs are filled
+const validation = (link) => {
+	//display link button only if there are numbers on display
+	if (valid) {
+		firstName.classList.remove('blink');
+		input2.classList.remove('blink');
+		setTimeout(function () {
+			playNow.style.visibility = 'visible';
+			playNowLink.href = link;
+			playNowLink.textContent = 'Play';
+		}, 2000);
+		//highlight unfilled inputs
+	} else {
+		if (firstName.value === '') {
+			firstName.classList.add('blink');
+		} else {
+			firstName.classList.remove('blink');
+		}
+		if (input2.value === '') {
+			input2.classList.add('blink');
+		} else {
+			input2.classList.remove('blink');
+		}
+
 	}
 }
