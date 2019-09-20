@@ -6,7 +6,7 @@ body {
 .titleDiv {
 	position: relative;
 	width: 800px;
-	margin: 20px auto;
+	margin: 40px auto;
 }
 
 #fourLeaf {
@@ -15,6 +15,7 @@ body {
 	left: 32px;
 	width: 150px;
 	z-index: -1;
+	filter: opacity(80%);
 }
 
 a {
@@ -22,7 +23,7 @@ a {
 }
 
 .title {
-	color: #4699FF;
+	color: #7EBDC2;
 	text-shadow: 4px 4px 5px #000;
 	padding: 30px;
 	font-size: 80px;
@@ -36,12 +37,15 @@ ul {
 	align-items: center;
 	flex-direction: row;
 	background-color: #FEE3DC;
+
+
 }
 
 li {
 	display: block;
 	padding: 20px;
 	font-weight: 900;
+	color: #231F20;
 	line-height: 30px;
 	border-radius: 50%;
 	border: 1px solid #222;
@@ -198,7 +202,7 @@ input {
 #LButton,
 #SFLButton,
 #TBButton {
-	margin: 10px;
+	margin: 10px 20px;
 	cursor: pointer;
 	width: 100px;
 	height: 100px;
