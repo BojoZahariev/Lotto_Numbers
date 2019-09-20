@@ -1,4 +1,3 @@
-const playLotto = document.getElementById('playLotto');
 const playNow = document.getElementById('playNow');
 const playNowLink = document.getElementById('playNowLink');
 //RNG
@@ -81,8 +80,8 @@ const generateNumbers = (amount, range) => {
 		container.appendChild(item);
 		item.textContent = myArray[i];
 		item.style.fontSize = '5px';
-		if (amount === 2) {
-			item.style.color = 'orange';
+		if (amount <= 2) {
+			item.classList.add('luckyStars');
 		}
 	}
 };
@@ -104,17 +103,27 @@ const maxDateToday = () => {
 	document.getElementById('birthDate').setAttribute('max', today);
 };
 
+//clear all inputs
+let clearButton = document.getElementById('clearInput');
+clearButton.addEventListener('click', () => {
+	//clearNumbers();
+
+	firstName.value = '';
+	document.getElementById('birthDate').value = '';
+});
+
+maxDateToday();
+
 //Lotto Button
 let LButton = document.getElementById('LButton');
 LButton.addEventListener('click', () => {
-	while (container.firstChild) {
-		container.removeChild(container.firstChild);
-	}
+	clearNumbers();
+
 	generateNumbers(6, 60);
 
 	playNow.style.visibility = 'hidden';
 	playNowLink.textContent = '';
-	setTimeout(function() {
+	setTimeout(function () {
 		playNow.style.visibility = 'visible';
 		playNowLink.href = 'https://www.national-lottery.co.uk/games/lotto?icid=-:mm:-:mdg:lo:dbg:pl:co';
 		playNowLink.textContent = 'Play';
@@ -124,30 +133,57 @@ LButton.addEventListener('click', () => {
 //EURO MIL button
 let EMButton = document.getElementById('EMButton');
 EMButton.addEventListener('click', () => {
-	while (container.firstChild) {
-		container.removeChild(container.firstChild);
-	}
+	clearNumbers();
+
 	generateNumbers(5, 51);
 	generateNumbers(2, 13);
 
 	playNow.style.visibility = 'hidden';
 	playNowLink.textContent = '';
-	setTimeout(function() {
+	setTimeout(function () {
 		playNow.style.visibility = 'visible';
 		playNowLink.href = 'https://www.national-lottery.co.uk/games/euromillions?icid=-:mm:-:mdg:em:dbg:pl:co';
 		playNowLink.textContent = 'Play';
 	}, 2000);
 });
 
-//clear all
-let clearButton = document.getElementById('clearInput');
-clearButton.addEventListener('click', () => {
+//Set fo life button
+let SFLButton = document.getElementById('SFLButton');
+SFLButton.addEventListener('click', () => {
+	clearNumbers();
+
+	generateNumbers(5, 49);
+	generateNumbers(1, 11);
+
+	playNow.style.visibility = 'hidden';
+	playNowLink.textContent = '';
+	setTimeout(function () {
+		playNow.style.visibility = 'visible';
+		playNowLink.href = 'https://www.national-lottery.co.uk/games/set-for-life?icid=-:mm:-:mdg:sfl:dbg:pl:co';
+		playNowLink.textContent = 'Play';
+	}, 2000);
+});
+
+//Thunder Ball button
+let TBButton = document.getElementById('TBButton');
+TBButton.addEventListener('click', () => {
+	clearNumbers();
+
+	generateNumbers(5, 40);
+	generateNumbers(1, 15);
+
+	playNow.style.visibility = 'hidden';
+	playNowLink.textContent = '';
+	setTimeout(function () {
+		playNow.style.visibility = 'visible';
+		playNowLink.href = 'https://www.national-lottery.co.uk/games/thunderball?icid=-:mm:-:mdg:tb:dbg:pl:co';
+		playNowLink.textContent = 'Play';
+	}, 2000);
+});
+
+//Clear numbers
+const clearNumbers = () => {
 	while (container.firstChild) {
 		container.removeChild(container.firstChild);
 	}
-
-	firstName.value = '';
-	document.getElementById('birthDate').value = '';
-});
-
-maxDateToday();
+}
