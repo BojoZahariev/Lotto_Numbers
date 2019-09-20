@@ -12,7 +12,7 @@ body {
 #fourLeaf {
 	position: absolute;
 	top: 0;
-	left: 52px;
+	left: 32px;
 	width: 150px;
 	z-index: -1;
 }
@@ -99,6 +99,9 @@ li {
 
 #formContainer {
 	margin-top: 30px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 /*Links*/
@@ -192,8 +195,10 @@ input {
 }
 
 #EMButton,
-#LButton {
-	margin: 0px 10px;
+#LButton,
+#SFLButton,
+#TBButton {
+	margin: 10px;
 	cursor: pointer;
 	width: 100px;
 	height: 100px;
@@ -207,17 +212,31 @@ input {
 }
 
 #LButton {
-	background-image: url(images/lottoIcon.png);
+	background-image: url(images/lotto_text_below.png);
 	-webkit-box-shadow: 0px 0px 5px 4px #F10001;
 	-moz-box-shadow: 0px 0px 5px 4px #F10001;
 	box-shadow: 0px 0px 5px 4px #F10001;
 }
 
 #EMButton {
-	background-image: url(images/EuroMillions.jpg);
+	background-image: url(images/euromillions_text_below.png);
 	-webkit-box-shadow: 0px 0px 5px 4px #FFEE02;
 	-moz-box-shadow: 0px 0px 5px 4px #FFEE02;
 	box-shadow: 0px 0px 5px 4px #FFEE02;
+}
+
+#SFLButton {
+	background-image: url(images/set-for-life_text_below.png);
+	-webkit-box-shadow: 0px 0px 5px 4px #43C1D0;
+	-moz-box-shadow: 0px 0px 5px 4px #43C1D0;
+	box-shadow: 0px 0px 5px 4px #43C1D0;
+}
+
+#TBButton {
+	background-image: url(images/thunderball_text_below.png);
+	-webkit-box-shadow: 0px 0px 5px 4px #BB00B5;
+	-moz-box-shadow: 0px 0px 5px 4px #BB00B5;
+	box-shadow: 0px 0px 5px 4px #BB00B5;
 }
 
 #LButton:hover {
@@ -232,6 +251,18 @@ input {
 	box-shadow: 0px 0px 5px 7px #FFEE02;
 }
 
+#SFLButton:hover {
+	-webkit-box-shadow: 0px 0px 5px 7px#43C1D0;
+	-moz-box-shadow: 0px 0px 5px 7px #43C1D0;
+	box-shadow: 0px 0px 5px 7px #43C1D0;
+}
+
+#TBButton:hover {
+	-webkit-box-shadow: 0px 0px 5px 7px#BB00B5;
+	-moz-box-shadow: 0px 0px 5px 7px #BB00B5;
+	box-shadow: 0px 0px 5px 7px #BB00B5;
+}
+
 #LButton:active {
 	-webkit-box-shadow: 0px 0px 5px 0px #F10001;
 	-moz-box-shadow: 0px 0px 5px 0px #F10001;
@@ -242,4 +273,16 @@ input {
 	-webkit-box-shadow: 0px 0px 5px 0px#FFEE02;
 	-moz-box-shadow: 0px 0px 5px 0px #FFEE02;
 	box-shadow: 0px 0px 5px 0px #FFEE02;
+}
+
+#SFLButton:active {
+	-webkit-box-shadow: 0px 0px 5px 0px#43C1D0;
+	-moz-box-shadow: 0px 0px 5px 0px #43C1D0;
+	box-shadow: 0px 0px 5px 0px #43C1D0;
+}
+
+#TBButton:active {
+	-webkit-box-shadow: 0px 0px 5px 0px#BB00B5;
+	-moz-box-shadow: 0px 0px 5px 0px #BB00B5;
+	box-shadow: 0px 0px 5px 0px #BB00B5;
 }
