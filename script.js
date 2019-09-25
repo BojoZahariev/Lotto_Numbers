@@ -114,6 +114,7 @@ clearButton.addEventListener('click', () => {
 
 	firstName.value = '';
 	document.getElementById('birthDate').value = '';
+	valid = false;
 });
 
 maxDateToday();
@@ -189,7 +190,7 @@ const validation = (link) => {
 			playNow.style.visibility = 'visible';
 			playNowLink.href = link;
 			playNowLink.textContent = 'Play';
-		}, 2000);
+		}, 1500);
 		//highlight unfilled inputs
 	} else {
 		if (firstName.value === '') {
