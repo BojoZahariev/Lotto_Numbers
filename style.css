@@ -1,8 +1,12 @@
 body {
+	background-color: #fee3dc;
+}
+
+.bigContainer {
 	text-align: center;
 	font-family: 'Patua One', cursive;
 	color: #231f20;
-	background-color: #fee3dc;
+	position: relative;
 }
 
 a {
@@ -13,7 +17,7 @@ a {
 .titleDiv {
 	position: relative;
 	width: 800px;
-	margin: 40px auto;
+	margin: 40px auto 100px;
 }
 
 #fourLeaf {
