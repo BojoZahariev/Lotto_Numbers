@@ -338,3 +338,30 @@ input {
 	-moz-box-shadow: 0px 0px 5px 0px #bb00b5;
 	box-shadow: 0px 0px 5px 0px #bb00b5;
 }
+
+/*MEDIA*/
+
+@media only screen and (max-width: 760px) {
+	.titleDiv {
+		position: relative;
+		width: 600px;
+		margin: 40px auto;
+	}
+
+	#fourLeaf {
+		position: absolute;
+		top: 0;
+		left: 22px;
+		width: 150px;
+		z-index: -1;
+		filter: opacity(80%);
+	}
+
+	.title {
+		color: #7ebdc2;
+		text-shadow: 4px 4px 5px #000;
+		padding: 30px;
+		font-size: 65px;
+		font-weight: 700;
+	}
+}
