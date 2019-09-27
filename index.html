@@ -15,30 +15,33 @@
 </head>
 
 <body>
-    <div class="titleDiv">
-        <img id="fourLeaf" src="images/four-leaf-clover-23901_960_720.png"></img>
-        <h1 class="title">My Lotto Numbers</h1>
-    </div>
-    <ul id="container"></ul>
-    <div id="playNow">
-        <a id="playNowLink" href="https://www.national-lottery.co.uk/games/lotto?icid=-:mm:-:mdg:lo:dbg:pl:co" target="blanc"></a>
+    <div class="bigContainer">
+        <div class="titleDiv">
+            <img id="fourLeaf" src="images/four-leaf-clover-23901_960_720.png"></img>
+            <h1 class="title">My Lotto Numbers</h1>
+        </div>
+        <ul id="container"></ul>
+        <div id="playNow">
+            <a id="playNowLink" href="https://www.national-lottery.co.uk/games/lotto?icid=-:mm:-:mdg:lo:dbg:pl:co" target="blanc"></a>
+        </div>
+
+        <form id="formContainer">
+            <div class="inputContainer">  
+                <span class="inputText">Name</span><input id="firstName" type="text" placeholder="Name">
+            </div>
+            <div class="inputContainer">
+                <span class="inputText">Date of Birth</span><input id="birthDate" type="date">
+            </div>
+            <div id="clearInput">Clear</div>
+        </form>
+        <div class="buttonsContainer">
+            <div id="LButton"></div>
+            <div id="EMButton"></div>
+            <div id="SFLButton"></div>
+            <div id="TBButton"></div>
+        </div>
     </div>
 
-    <form id="formContainer">
-        <div>
-            <span class="inputText">Name</span><input id="firstName" type="text" placeholder="Name">
-        </div>
-        <div>
-            <span class="inputText">Date of Birth</span><input id="birthDate" type="date">
-        </div>
-        <div id="clearInput">Clear</div>
-    </form>
-    <div class="buttonsContainer">
-        <div id="LButton"></div>
-        <div id="EMButton"></div>
-        <div id="SFLButton"></div>
-        <div id="TBButton"></div>
-    </div>
     <script src="script.js"></script>
 </body>
 
