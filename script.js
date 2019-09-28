@@ -85,11 +85,26 @@ const generateNumbers = (amount, range) => {
 			if (amount <= 2) {
 				item.classList.add('luckyStars');
 			}
+
+			//copy to clipboard
+			item.addEventListener('click', () => {
+				let textHolder = document.createElement('textarea');
+				container.appendChild(textHolder);
+				textHolder.value = item.textContent;
+				textHolder.select();
+				textHolder.setSelectionRange(0, 99999)
+				document.execCommand("copy");
+				textHolder.remove();
+			});
+
 		}
 		//valid entry
 		valid = true;
 	}
+
+
 };
+
 
 //set max date to today
 const maxDateToday = () => {
