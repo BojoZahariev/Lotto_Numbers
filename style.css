@@ -66,6 +66,7 @@ li {
 	animation-fill-mode: forwards;
 	margin: 0px 5px;
 	background-color: #fffffb;
+	cursor: pointer;
 }
 
 @keyframes expand {
@@ -121,7 +122,6 @@ li {
 	margin-left: 20px;
 }
 
-
 input {
 	text-transform: uppercase;
 	border: 1px solid #c4c4c4;
@@ -163,8 +163,6 @@ input {
 	opacity: 0;
 	cursor: pointer;
 }
-
-
 
 #clearInput {
 	border: 1px solid #222;
@@ -374,7 +372,6 @@ input {
 		left: 22px;
 		width: 100px;
 	}
-
 
 	.title {
 		font-size: 55px;
