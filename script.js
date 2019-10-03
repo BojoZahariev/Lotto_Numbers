@@ -40,6 +40,7 @@ const generateNumbers = (amount, range) => {
 	//get the number for the day from the date
 	let todayNumber = currentDate.getDate() + currentDate.getMonth() + 1 + currentDate.getFullYear();
 
+	//Numeric value of the name
 	const letterToNumber = (str) => {
 		str = str.toLowerCase();
 		let sum = 0;
@@ -48,7 +49,6 @@ const generateNumbers = (amount, range) => {
 		}
 
 		return sum;
-
 	};
 
 	//lucky numbers change every day
@@ -89,21 +89,24 @@ const displayNumbers = (arrayOfNumbers, count) => {
 				item.classList.add('luckyStars');
 			}
 
-			//copy to clipboard
-			item.addEventListener('click', () => {
-				let textHolder = document.createElement('textarea');
-				container.appendChild(textHolder);
-				textHolder.value = item.textContent;
-				textHolder.select();
-				textHolder.setSelectionRange(0, 99999)
-				document.execCommand("copy");
-				textHolder.remove();
-			});
-
+			copyToClipboard(item);
 		}
 		//valid entry
 		valid = true;
 	}
+}
+
+//copy to clipboard
+const copyToClipboard = (num) => {
+	num.addEventListener('click', () => {
+		let textHolder = document.createElement('textarea');
+		container.appendChild(textHolder);
+		textHolder.value = num.textContent;
+		textHolder.select();
+		textHolder.setSelectionRange(0, 99999)
+		document.execCommand("copy");
+		textHolder.remove();
+	});
 }
 
 //set max date to today
