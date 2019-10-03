@@ -211,7 +211,7 @@ const validation = (link) => {
 			playNowLink.href = link;
 			playNowLink.textContent = 'Play';
 		}, 1500);
-		//highlight unfilled inputs
+	//highlight unfilled inputs
 	} else {
 		if (firstName.value === '') {
 			firstName.classList.add('blink');
