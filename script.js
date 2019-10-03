@@ -35,7 +35,6 @@ class RNG {
 //Seed
 const generateNumbers = (amount, range) => {
 	let dateBirth = Date.parse(input2.value);
-
 	let currentDate = new Date();
 
 	//get the number for the day from the date
@@ -72,17 +71,21 @@ const generateNumbers = (amount, range) => {
 		}
 	}
 
-	//prevents default
+	displayNumbers(myArray, amount);
+};
+
+//Display numbers
+const displayNumbers = (arrayOfNumbers, count) => {
 	if (firstName.value !== '' && input2.value !== '') {
 		//Display the results
-		for (let i = 0; i < myArray.length; i++) {
+		for (let i = 0; i < arrayOfNumbers.length; i++) {
 			let item = document.createElement('li');
 			item.classList.add('item');
 			const container = document.getElementById('container');
 			container.appendChild(item);
-			item.textContent = myArray[i];
+			item.textContent = arrayOfNumbers[i];
 			item.style.fontSize = '5px';
-			if (amount <= 2) {
+			if (count <= 2) {
 				item.classList.add('luckyStars');
 			}
 
@@ -101,10 +104,7 @@ const generateNumbers = (amount, range) => {
 		//valid entry
 		valid = true;
 	}
-
-
-};
-
+}
 
 //set max date to today
 const maxDateToday = () => {
@@ -123,6 +123,8 @@ const maxDateToday = () => {
 	document.getElementById('birthDate').setAttribute('max', today);
 };
 
+maxDateToday();
+
 //clear all inputs
 let clearButton = document.getElementById('clearInput');
 clearButton.addEventListener('click', () => {
@@ -132,7 +134,7 @@ clearButton.addEventListener('click', () => {
 	valid = false;
 });
 
-maxDateToday();
+
 
 //Lotto Button
 let LButton = document.getElementById('LButton');
