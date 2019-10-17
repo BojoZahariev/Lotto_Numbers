@@ -39,7 +39,7 @@ a {
 
 #small-title {
   font-size: 30px;
-  margin: 10px autos;
+  margin: 10px auto;
 }
 
 /*NUMBERS*/
@@ -380,5 +380,9 @@ input {
 
   .title {
     font-size: 55px;
+  }
+
+  #small-title {
+    font-size: 20px;
   }
 }
