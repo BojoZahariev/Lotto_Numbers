@@ -17,7 +17,7 @@ a {
 .titleDiv {
   position: relative;
   width: 800px;
-  margin: 40px auto 100px;
+  margin: 40px auto 80px;
 }
 
 #fourLeaf {
@@ -35,6 +35,11 @@ a {
   padding: 30px;
   font-size: 80px;
   font-weight: 700;
+}
+
+#small-title {
+  font-size: 30px;
+  margin: 10px autos;
 }
 
 /*NUMBERS*/
