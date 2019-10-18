@@ -2,6 +2,8 @@ const playNow = document.getElementById('playNow');
 const playNowLink = document.getElementById('playNowLink');
 const firstName = document.getElementById('firstName');
 const input2 = document.getElementById('birthDate');
+const smallTitle = document.getElementById('small-title');
+const smallTitleDate = document.getElementById('small-title-date');
 var valid = false;
 //RNG
 class RNG {
@@ -91,6 +93,23 @@ const displayNumbers = (arrayOfNumbers, count) => {
 
       copyToClipboard(item);
     }
+
+    smallTitle.textContent = 'Your Lucky Numbers for ';
+
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1; //January is 0!
+    let yyyy = today.getFullYear();
+    if (dd < 10) {
+      dd = '0' + dd;
+    }
+    if (mm < 10) {
+      mm = '0' + mm;
+    }
+
+    today = dd + '-' + mm + '-' + yyyy;
+    smallTitleDate.textContent = today;
+
     //valid entry
     valid = true;
   }
