@@ -3,7 +3,6 @@ const playNowLink = document.getElementById('playNowLink');
 const firstName = document.getElementById('firstName');
 const input2 = document.getElementById('birthDate');
 const smallTitle = document.getElementById('small-title');
-const smallTitleDate = document.getElementById('small-title-date');
 var valid = false;
 //RNG
 class RNG {
@@ -94,8 +93,6 @@ const displayNumbers = (arrayOfNumbers, count) => {
       copyToClipboard(item);
     }
 
-    smallTitle.textContent = 'Your Lucky Numbers for ';
-
     let today = new Date();
     let dd = today.getDate();
     let mm = today.getMonth() + 1; //January is 0!
@@ -108,7 +105,8 @@ const displayNumbers = (arrayOfNumbers, count) => {
     }
 
     today = dd + '-' + mm + '-' + yyyy;
-    smallTitleDate.textContent = today;
+
+    smallTitle.textContent = 'Your Lucky Numbers for ' + today;
 
     //valid entry
     valid = true;
