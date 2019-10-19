@@ -3,6 +3,7 @@ const playNowLink = document.getElementById('playNowLink');
 const firstName = document.getElementById('firstName');
 const input2 = document.getElementById('birthDate');
 const smallTitle = document.getElementById('small-title');
+const smallTitleDate = document.getElementById('small-title-date');
 var valid = false;
 //RNG
 class RNG {
@@ -93,7 +94,8 @@ const displayNumbers = (arrayOfNumbers, count) => {
       copyToClipboard(item);
     }
 
-    smallTitle.textContent = 'Your Lucky Numbers for ' + dateToday('text');
+    smallTitle.textContent = 'Your Lucky Numbers for';
+    smallTitleDate.textContent = dateToday('text');
 
     //valid entry
     valid = true;
