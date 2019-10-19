@@ -155,8 +155,6 @@ LButton.addEventListener('click', () => {
 
   generateNumbers(6, 60);
 
-  playNow.style.visibility = 'hidden';
-  playNowLink.textContent = '';
   validation('https://www.national-lottery.co.uk/games/lotto?icid=-:mm:-:mdg:lo:dbg:pl:co');
 });
 
@@ -167,9 +165,6 @@ EMButton.addEventListener('click', () => {
 
   generateNumbers(5, 51);
   generateNumbers(2, 13);
-
-  playNow.style.visibility = 'hidden';
-  playNowLink.textContent = '';
 
   validation('https://www.national-lottery.co.uk/games/euromillions?icid=-:mm:-:mdg:em:dbg:pl:co');
 });
@@ -182,9 +177,6 @@ SFLButton.addEventListener('click', () => {
   generateNumbers(5, 49);
   generateNumbers(1, 11);
 
-  playNow.style.visibility = 'hidden';
-  playNowLink.textContent = '';
-
   validation('https://www.national-lottery.co.uk/games/set-for-life?icid=-:mm:-:mdg:sfl:dbg:pl:co');
 });
 
@@ -196,17 +188,17 @@ TBButton.addEventListener('click', () => {
   generateNumbers(5, 40);
   generateNumbers(1, 15);
 
-  playNow.style.visibility = 'hidden';
-  playNowLink.textContent = '';
-
   validation('https://www.national-lottery.co.uk/games/thunderball?icid=-:mm:-:mdg:tb:dbg:pl:co');
 });
 
-//Clear numbers
+//Clear numbers and link button
 const clearNumbers = () => {
   while (container.firstChild) {
     container.removeChild(container.firstChild);
   }
+
+  playNow.style.visibility = 'hidden';
+  playNowLink.textContent = '';
 };
 
 //check if the inputs are filled
