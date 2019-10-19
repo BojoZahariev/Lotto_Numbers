@@ -38,9 +38,17 @@ a {
 }
 
 #small-title {
+  display: inline-block;
   font-size: 30px;
   color: #222;
   margin: 0px auto 10px;
+}
+
+#small-title-date {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 30px;
+  color: #222;
 }
 
 /*NUMBERS*/
@@ -383,7 +391,8 @@ input {
     font-size: 55px;
   }
 
-  #small-title {
+  #small-title,
+  #small-title-date {
     font-size: 20px;
   }
 }
