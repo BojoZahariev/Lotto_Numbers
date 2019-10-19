@@ -93,20 +93,7 @@ const displayNumbers = (arrayOfNumbers, count) => {
       copyToClipboard(item);
     }
 
-    let today = new Date();
-    let dd = today.getDate();
-    let mm = today.getMonth() + 1; //January is 0!
-    let yyyy = today.getFullYear();
-    if (dd < 10) {
-      dd = '0' + dd;
-    }
-    if (mm < 10) {
-      mm = '0' + mm;
-    }
-
-    today = dd + '-' + mm + '-' + yyyy;
-
-    smallTitle.textContent = 'Your Lucky Numbers for ' + today;
+    smallTitle.textContent = 'Your Lucky Numbers for ' + dateToday('text');
 
     //valid entry
     valid = true;
@@ -126,8 +113,8 @@ const copyToClipboard = num => {
   });
 };
 
-//set max date to today
-const maxDateToday = () => {
+//set max date to today and changes the date in the text
+const dateToday = type => {
   let today = new Date();
   let dd = today.getDate();
   let mm = today.getMonth() + 1; //January is 0!
@@ -138,12 +125,18 @@ const maxDateToday = () => {
   if (mm < 10) {
     mm = '0' + mm;
   }
+  if (type === 'input') {
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById('birthDate').setAttribute('max', today);
+  } else {
+    today = dd + '-' + mm + '-' + yyyy;
+  }
 
-  today = yyyy + '-' + mm + '-' + dd;
-  document.getElementById('birthDate').setAttribute('max', today);
+  return today;
 };
 
-maxDateToday();
+//set max date to today in the input
+dateToday('input');
 
 //clear all inputs
 let clearButton = document.getElementById('clearInput');
