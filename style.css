@@ -203,7 +203,6 @@ input {
 /*Link */
 #playNow {
 	margin: 30px auto;
-	height: 50px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
