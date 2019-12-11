@@ -480,6 +480,10 @@ input {
     font-size: 20px;
   }
 
+  .inputContainer {
+    margin-bottom: 10px;
+  }
+
   #EMButton,
   #LButton,
   #SFLButton,
