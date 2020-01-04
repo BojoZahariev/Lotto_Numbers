@@ -1,2 +1,2 @@
-Lotto Numbers
-JS RNG with seed
+# My Lotto Numbers
+## JS RNG with seed
